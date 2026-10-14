@@ -4,28 +4,36 @@
 
 *Cellarum* (SEL-ər-əm): Latin for "of the storerooms". The cellarer kept a house's stores and bought what they needed.
 
-One system of record for everything an organization owns, stocks, buys, and signs: **assets, consumables, purchases and contracts**.
-Cellarum is the engine underneath: inventory, stores, warehouses and every department's own stock run on it, through an API, a web app, native apps and an MCP server.
+One system of record for an organization's **devices, infrastructure, stock, purchases and contracts**. Cellarum connects what an asset is, where it belongs, who owns it, what it connects to and when it needs attention.
+
+The scope spans the whole estate: from a laptop on loan or an accessory in stock to a ceiling-mounted switch, a rack of servers and the applications they host. Floor plans, rack elevations and dependency views are ways into the same inventory, with access levels that protect sensitive infrastructure details.
+
+The same engine supports departmental inventories, stores and warehouses through an API, a web app, native apps and an MCP server.
 
 **In early development.** The repositories are private until the first release.
 
 </div>
 
-## What it does
+## Product scope
 
-Cellarum is the operational layer: the place where things are received, assigned, moved, loaned, counted, renewed and retired. Every change is recorded as an event, so the record says who changed what, when and why.
+Cellarum is being built as a complete infrastructure inventory and asset-management platform. The scope includes the operational workflows of an established asset system alongside detailed networking and server inventory. Features below are the product direction; early development does not mean every subsystem is available yet.
 
-- **Every asset class**: laptops and phones, servers and VMs placed on rack maps, network jacks placed on floor plans, websites, licences and contracts, in one model
-- **Stock and consumables**: structural assets tracked one by one, and stock that is counted, with loans and stores on top
-- **Procurement**: supplier catalogs, requisitions, purchase orders and budgets, from quote to delivered asset
-- **Department domains**: each department runs its own inventory and sees only its own, on one shared platform
-- **REST API**: FastAPI with the OpenAPI contract written first; every client is generated from it
-- **Integrations outside the core**: feeds and syncs run as external functions against the API, so the core stays to itself
-- **Multi-cloud**: Terraform for Azure and AWS, or self-host with Docker Compose
+- **Devices and asset management**: computers, phones, printers, accessories, components and licence seats, with assignment, checkout and checkin, audits, maintenance, files and labels
+- **Networking**: ONTs, wall jacks, patch panels, switches and Wi-Fi access points, including ceiling-mounted equipment. Named ports and their connections make a path traceable through the physical network
+- **Servers and services**: physical servers, hypervisors, VMs and cloud instances, with compute and storage details, host/guest relationships, ownership, backup and monitoring context, and application dependencies
+- **Physical inventory**: buildings, rooms, communications closets, racks and placements, connected through floor plans and rack elevations. Explicit asset locations determine placement, even when a device name reflects an old location; updated plans and incomplete mappings need clear review paths
+- **Lifecycle and support**: purchases, warranties, leases, support and end-of-life dates, with firmware information for network equipment and renewal records for websites, certificates and contracts
+- **Stock, procurement and stores**: counted consumables, supplier catalogs, requisitions, purchase orders and budgets, with departmental stores and loans on the same engine
+- **Controlled visibility**: departmental inventories and role-based access, with sensitive topology protected across maps, relationships, search, exports and the API
+- **Trustworthy records**: an event for every change, clear data provenance and freshness, and migration tools that reconcile missing assets and conflicting facts
+
+Assets are received, assigned, moved, loaned, counted, renewed and retired through the same API. History records who changed what, when and why.
 
 ## Architecture
 
 The API is the product. Every app is a thin client with no database access.
+
+FastAPI serves a typed OpenAPI contract written before the implementation. Vendor feeds and syncs run outside the core as API clients. Deployment targets are Terraform-managed Azure and AWS, plus self-hosted Docker Compose.
 
 ```mermaid
 flowchart LR
