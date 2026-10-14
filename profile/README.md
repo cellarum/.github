@@ -1,8 +1,8 @@
 <div align="left">
 
-# Cellarum - the source of truth for what we hold and own
+# Cellarum — the source of truth for what we hold and own
 
-*Cellarum* (SEL-ər-əm): Latin for "of the storerooms". The cellarer kept a house's stores and bought what they needed.
+*Cellarum* (SEL-ər-əm) means "of the storerooms" in Latin. A cellarer managed a household's stores and bought what it needed.
 
 One system of record for an organization's **devices, infrastructure, stock, purchases and contracts**. Cellarum connects what an asset is, where it belongs, who owns it, what it connects to and when it needs attention.
 
