@@ -29,21 +29,60 @@ Assets are received, assigned, moved, loaned, counted, renewed and retired throu
 
 ## Architecture
 
-The API is the product. Every app is a thin client with no database access.
+Cellarum is an API-first operational platform built around a shared model of assets, stock, locations, people, and relationships. Web, native apps, integrations, and agents use the same contract, permissions, and business rules.
 
-FastAPI serves a typed OpenAPI contract written before the implementation. Vendor feeds and syncs run outside the core as API clients. Deployment targets are Terraform-managed Azure and AWS, plus self-hosted Docker Compose.
+The backend is modular: inventory, infrastructure, lending, stock, procurement, contracts, and stores build on the same foundation. These are connected parts of one platform, rather than separate inventories that need reconciling.
 
 ```mermaid
-flowchart LR
-  W["Web app<br/>Next.js"] --> API
-  M["Cellarum for Mac<br/>SwiftUI"] --> API
-  N["Cellarum for Windows<br/>WinUI"] --> API
-  P["MCP server"] --> API
-  F["External functions<br/>feeds and syncs"] --> API
-  API["FastAPI<br/>OpenAPI contract"] --- DB[("PostgreSQL<br/>items · event log · job queue")]
+flowchart TB
+    Clients["Web · native apps · agents"]
+    Adapters["External integration adapters"]
+    Identity["OpenID Connect provider"]
+
+    subgraph Cellarum["Cellarum platform"]
+        API["Versioned API contract<br/>Authentication · domain permissions · validation"]
+
+        Model["Shared inventory model<br/>Classes · assets · stock · people · locations"]
+
+        Relationships["Relationships and placement<br/>Connections · dependencies · hosts · racks · floor plans"]
+
+        Workflows["Operational and commercial workflows<br/>Loans · audits · maintenance<br/>Purchasing · contracts · stores"]
+
+        History["Transactional write layer<br/>Current state and immutable events"]
+
+        Workers["Background workers — planned<br/>Renewals · notifications · webhooks"]
+    end
+
+    DB[("PostgreSQL<br/>Records · relationships · event history")]
+    Files["File storage — planned<br/>Attachments · documents · floor plans"]
+    Analytics["External analytics consumers — planned"]
+
+    Clients --> API
+    Adapters --> API
+    Identity -. authentication .-> API
+    API --> Model
+    API --> Relationships
+    API --> Workflows
+    Model --> History
+    Relationships --> History
+    Workflows --> History
+    History --> DB
+    Workflows -. asynchronous work .-> Workers
+    API -. authorized file access .-> Files
+    API -. read-only datasets .-> Analytics
 ```
 
-Sign-in goes through any OpenID Connect provider, Microsoft Entra first. Files live on object storage by default, or on a local disk.
+**A shared model, many views.** An asset's assignment, physical location, network connections, hosted applications, and commercial history belong to the same record. Tables, floor plans, rack elevations, and dependency maps expose different parts of that model. Relationships live in PostgreSQL alongside the assets they connect.
+
+**History is part of every write.** Changes to current state and their immutable events commit in the same database transaction. The event log can rebuild the current-state tables, making history verifiable rather than an activity feed maintained separately.
+
+**Permissions live in the API.** Department domains define ownership and access boundaries. Every client and integration passes through those checks; visibility must carry through searches, relationships, maps, and exports.
+
+**Integrations stay outside the core.** External adapters translate telemetry, monitoring, supplier, finance, and ticketing data into the public API. Cellarum owns operational records and workflows; analytical consumers receive read-only datasets.
+
+**One application architecture across deployment targets.** Docker Compose is the working self-hosted stack. Azure and AWS are planned Terraform-managed targets using the same application containers, with storage and background processing designed to work across all three.
+
+The core API, permissions, inventory, stock, loans, relationships, event replay, and web app are implemented. Commercial workflows, background workers, general attachment storage, floor-plan editing, and complete native and agent clients remain in development or planning.
 
 ## Repositories
 
