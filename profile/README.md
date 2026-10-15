@@ -1,10 +1,12 @@
 <div align="left">
 
-# Cellarum — the source of truth for what we hold and own
+# Cellarum — everything you have, connected
 
-Cellarum (SEL-ər-əm) means “of the storerooms” in Latin. It gives everything we hold a place in the bigger picture: its location, ownership, connections and lifecycle. Departments manage their own holdings, while authorized teams can follow the relationships across the whole organization.
+Cellarum (SEL-ər-əm) means “of the storerooms” in Latin. The name carries that tradition of keeping things organized, accounted for, and ready when needed.
 
-The platform brings together devices, servers, networking, stock, purchases and contracts. Floor plans, rack layouts and dependency views connect physical assets to the applications and services they support. Departmental inventories, stores and warehouses run on the same engine, through an API, a web app, native apps and an MCP server.
+Cellarum brings your devices, servers, networking, stock, purchases, and contracts into one shared record. Each asset has a place in the bigger picture: where it is, who it belongs to, what it connects to, and where it stands in its lifecycle. Departments maintain their own inventories, while authorized teams can follow relationships across the organization.
+
+Floor plans, rack layouts, and dependency views connect physical assets to the applications and services they support. Inventories, stores, and warehouses run on the same engine, accessible through a web app, native apps, an API, and an MCP server.
 
 **In early development.** The repositories are private until the first release.
 
