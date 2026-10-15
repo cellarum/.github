@@ -2,7 +2,7 @@
 
 # Cellarum — everything you have, connected
 
-Cellarum (SEL-ər-əm), Latin for “of the storerooms” — a name rooted in keeping things organized, accounted for, and ready when needed.
+Cellarum (SEL-ər-əm), Latin for “of the storerooms” where things are kept organized, accounted for, and ready when needed.
 
 Cellarum brings your devices, servers, networking, stock, purchases, and contracts into one shared record. Each asset has a place in the bigger picture: where it is, who it belongs to, what it connects to, and where it stands in its lifecycle. Departments maintain their own inventories, while authorized teams can follow relationships across the organization.
 
