@@ -2,7 +2,7 @@
 
 # Cellarum — everything you have, connected
 
-Cellarum (SEL-ər-əm) means “of the cells” in Latin, the genitive plural of *cella*. Individual records form a connected whole, linking assets, people, places and the systems they support.
+Cellarum (SEL-ər-əm) genitive plural “of the cells” in Latin. Individual records form a connected whole, linked, organized, accounted for, and ready when needed.
 
 Cellarum brings your devices, servers, networking, stock, purchases, and contracts into one shared record. Each asset has a place in the bigger picture: where it is, who it belongs to, what it connects to, and where it stands in its lifecycle. Departments maintain their own inventories, while authorized teams can follow relationships across the organization.
 
