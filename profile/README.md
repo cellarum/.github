@@ -100,3 +100,7 @@ The core API, permissions, inventory, stock, loans, relationships, event replay,
 ## Open core
 
 The **server** (API and web app) and the **MCP server** are **AGPL-3.0**; the **native apps**, **Terraform modules** and **deployment tooling** are **MIT**. A separate commercial license is available for organizations whose policies do not permit AGPL.
+
+## Project documentation
+
+[Repository wiki index](../wiki/README.md) links the API, clients and deployment guides.
