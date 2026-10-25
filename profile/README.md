@@ -29,6 +29,11 @@ Assets are received, assigned, moved, loaned, counted, renewed and retired throu
 
 ## Architecture
 
+Read the [platform architecture and delivery plan](../ARCHITECTURE.md) for the
+shared foundation, business modules, workspace boundaries, products, clients and
+deployment responsibilities across Cellarum. It distinguishes current foundations
+from planned capabilities and proposed terminology.
+
 Cellarum is an API-first operational platform built around a shared model of assets, stock, locations, people, and relationships. Web, native apps, integrations, and agents use the same contract, permissions, and business rules.
 
 The backend is modular: inventory, infrastructure, lending, stock, procurement, contracts, and stores build on the same foundation. These are connected parts of one platform, rather than separate inventories that need reconciling.

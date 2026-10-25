@@ -1,6 +1,9 @@
 # Cellarum project wiki
 
-Cellarum connects operational inventory through one API and shared record model. This repository holds the organization profile and brand assets. Product implementation and development guidance live with each component.
+Cellarum connects operational inventory through one API and shared record model.
+This repository owns the [platform architecture and delivery plan](../ARCHITECTURE.md),
+organization profile and brand assets. Product implementation and development
+guidance live with each component.
 
 ## Repository guides
 
@@ -25,6 +28,11 @@ The [organization profile](../profile/README.md) introduces the product. [Brand 
 
 ## Documentation conventions
 
-Use module for product navigation, such as Devices, Systems and Network. Distinguish navigation collections and child collections from persisted classes and Domain permissions. Describe implemented behavior in the present tense; link issues and roadmap pages for planned work.
+Use the [architecture vocabulary](../ARCHITECTURE.md#2-four-concepts): modules own
+business capabilities; products assemble experiences; collections organize
+navigation. Workspace is proposed vocabulary for the existing Domain permission
+boundary, not an approved API/database rename. Distinguish those concepts from
+persisted classes. Describe implemented behavior in the present tense; link issues
+and roadmap pages for planned work.
 
 Each repository's wiki is versioned under its wiki directory and reviewed with the source. Update the existing authoritative page when behavior changes, keep commands copyable and use fictional examples. Deployment-specific inventories, credentials and operational procedures stay with the deployment owner.
