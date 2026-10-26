@@ -328,6 +328,38 @@ Refresh this matrix through linked implementation issues. Development status,
 deployment enablement, product inclusion and actor permission must be represented
 separately. Older documentation and repository presence are not completion proof.
 
+### Framework delivery evidence
+
+The [platform audit](https://github.com/cellarum/.github/issues/20) coordinates
+component work. The first shared record slice uses Department and Supplier as
+two real consumers; it does not replace their business operations with a generic
+mutation service. The following evidence describes source delivery, not deployment
+enablement or complete product acceptance.
+
+| Slice | Owning evidence | Accepted scope and remaining boundary |
+| --- | --- | --- |
+| Shared ordinary-record presentation | [Web fields/actions](https://github.com/cellarum/cellarum-app-web/pull/314), [reference controls](https://github.com/cellarum/cellarum-app-web/pull/316) | Reusable serializable fields, native typed writes and paged reference recovery; these client foundations alone do not establish server-owned metadata |
+| Scoped record definitions | [API contract](https://github.com/cellarum/cellarum-api/pull/281), [client acceptance](https://github.com/cellarum/cellarum-app-web/issues/318), [contract issue](https://github.com/cellarum/cellarum-api/issues/276) | Version 1 describes bounded Department/Supplier fields and their existing update action; actor/Site-scoped, uncached and descriptive, with native authorization and If-Match retained. Client adoption is tracked separately from the merged server contract |
+| Shared location references | [API filter](https://github.com/cellarum/cellarum-api/pull/278), [web adoption](https://github.com/cellarum/cellarum-app-web/issues/318) | Native shared-only filtering precedes matching, counts and paging; client-side filtering of a mixed page is not an equivalent fallback |
+| Private files and document execution | [Classified files](https://github.com/cellarum/cellarum-api/issues/67), [asset attachments](https://github.com/cellarum/cellarum-api/issues/117), [durable execution proposal](https://github.com/cellarum/cellarum-api/issues/277) | Existing document and delivery implementations remain owned by their components. General attachments and crash-safe application jobs require their own access, retention and recovery acceptance |
+| Native client acceptance | [Swift workflows](https://github.com/cellarum/cellarum-app-swift/issues/3), [C# workflows](https://github.com/cellarum/cellarum-app-csharp/issues/3) | Sign-in, generated-contract compatibility and actual native workflows remain explicit acceptance work; shared metadata does not establish native parity |
+
+The metadata package remains partial until two record families cover forms,
+lists and actions with consistent server-owned semantics and tested fallbacks.
+The first record definition contract covers forms and the native update action;
+it does not declare list columns, query/filter operators, create/delete authority,
+saved views, bulk operations or business approvals. Existing specialized controls
+and routes retain their contracts. Extend this bounded contract only through a
+reviewed proposal with typed client compatibility and access tests.
+
+For the next shared-service proposal, Money payment-voucher rendering and Work
+user-agreement generation are the candidate pair. They already share rendering
+and private byte storage while owning distinct finalization rules. Admission,
+frozen inputs, execution authority, fencing, source versions, immutable output,
+replay and database/file restore must be specified before introducing persisted
+jobs. Render completion is separate from business issuance and external delivery.
+This proposal reserves no migration and changes no current synchronous response.
+
 ## 11. Delivery plan
 
 Existing operational delivery continues. These work packages organize shared
